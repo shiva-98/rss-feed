@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @feed.name %>
+</p>
+
+<p>
+  <b>Feed url:</b>
+  <%= @feed.feed_url %>
+</p>
+<h3>Feeds list </h3>
+<ul>
+  <% @feed.items.each do |item|%>
+    <li>
+      <%=link_to item.title, item.link, target: "_blank" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
